@@ -3,6 +3,9 @@
 ## Overview
 The scenario listens for incoming webhook data, enriches it via an external API, calculates tax variables, generates a formatted Google Docs invoice from a template, and automatically emails the final document to the client.
 
+## Workflow
+<img width="1547" height="442" alt="image" src="https://github.com/user-attachments/assets/207e9b00-1551-4318-af13-0fe5e62a6d37" />
+
 **Live Scenario Blueprint:** [Link Scenario](https://eu1.make.com/public/shared-scenario/uCKnuQXfAUe/b2-c-invoice-holiday-welcome-automation)
 
 ## Scenario Architecture
