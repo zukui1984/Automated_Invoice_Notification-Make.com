@@ -48,4 +48,46 @@ The scenario listens for incoming webhook data, enriches it via an external API,
 
 <img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/5bbf24ec-b9b2-4099-863f-38b38073f01a" />
 
+### Step 3: Calculate VAT (Tools Module)
+1. Add a new module: **Tools -> Set variable** (or Get variable depending on your flow).
+2. Configure the calculation:
+   - Variable name: `vat_amount`
+   - Variable value: Drag the price variable from the Webhook module and multiply it by 19% VAT.
+   - Formula: `{{price}} * 0.19`
+3. Execute the module to verify the calculation outputs correctly.
+
+## Tools 
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/c51e197c-950f-46dd-bf1a-907d5b857b39" />
+
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/971fc51b-2fdb-4a97-bac7-76b356be0451" />
+
+### Step 4: Generate the Google Docs Invoice
+1. Create a new Google Doc to serve as your template and insert the following text with placeholders:
+```text
+RECHNUNG
+
+Kunde: {{customer_name}}
+Datum: {{now}}
+Leistung: {{service_name}}
+Preis (Netto): {{price}} EUR
+MwSt (19%): {{vat_amount}} EUR
+Gesamtbetrag: {{total}} EUR
+
+Vielen Dank für Ihren Auftrag!
+```
+
+### Google Docs screenshot
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/99030e20-3838-44bb-97a3-6bf7b5f7893e" />
+
+2. Back in Make.com, add the **Google Docs -> Create a document** from a template module.
+3. Connect your Google account, select the template file you just created, and map the variables from the previous modules (Webhook and Tools) to the corresponding placeholders in the document.
+
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/139b5220-1f9c-4576-afbc-a4329be3e92a" />
+
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/5b16884f-3c47-449a-9cfa-3e02e52b0a22" />
+
+4. Execute the module to generate a test document.
+
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/47b03e99-02d9-4c8e-a9b1-a12f617cf473" />
+
 
