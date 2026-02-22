@@ -28,5 +28,24 @@ The scenario listens for incoming webhook data, enriches it via an external API,
 
 <img width="745" height="172" alt="image" src="https://github.com/user-attachments/assets/39030875-5494-4d89-91b6-7a9eb8d14d03" />
 
+7. The result looks like this
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/b42853be-fa1c-4106-9494-8a0c212a95af" />
+
+
+### Step 2: Fetch Regional Data via HTTP
+1. Add a new module: **HTTP -> Make a request**.
+2. Configure the module to fetch data from the German public holiday API:
+3. Authentication Type: No authentication
+4. URL: `https://feiertage-api.de/api/`
+5. Method: **GET**
+6. Query String:
+   - Name: `nur_land`
+   - Value: Map the state variable (e.g., BY) from the Webhook module using drag-and-drop.
+7. Run the module to ensure it executes successfully (turns green).
+
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/2748bdc8-bb53-46d6-ad15-217d9a302e25" />
+
+<img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/5bbf24ec-b9b2-4099-863f-38b38073f01a" />
 
 
